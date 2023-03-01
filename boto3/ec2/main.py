@@ -7,5 +7,5 @@ response = ec2_client.describe_instances(Filters=[{'Name': 'tag:Shutdown', 'Valu
 for reservation in response['Reservations']:
     for instance in reservation['Instances']:
         instance_id = instance['InstanceId']
-        print(f'Desligando a instância {instance_id}...')
+        print(f'Shutdown instance: {instance_id}..')
         ec2_client.stop_instances(InstanceIds=[instance_id])
